@@ -23,16 +23,5 @@ jobs:
     uses: ahincho/nova-devops/.github/workflows/reusable-sonarcloud-gradle.yml@main
     with:
       sonar-org: ahincho
-      sonar-project-key: ahincho_nova-java-spring-boot-mask-utils
-    secrets: inherit
-
-  version-bump:
-    if: github.event_name == 'push'
-    uses: ahincho/nova-devops/.github/workflows/reusable-version-bump-gradle.yml@main
-    secrets: inherit
-
-  publish:
-    if: github.event_name == 'push'
-    needs: version-bump
-    uses: ahincho/nova-devops/.github/workflows/reusable-publish-gradle.yml@main
+      sonar-project-key: ahincho_nova-mask-utils
     secrets: inherit
