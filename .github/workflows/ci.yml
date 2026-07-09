@@ -15,24 +15,24 @@ on:
 jobs:
   build:
     if: github.event_name == 'pull_request'
-    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-build-maven.yml@main
+    uses: ahincho/nova-devops/.github/workflows/reusable-build-gradle.yml@main
     secrets: inherit
 
   sonar:
     if: github.event_name == 'pull_request'
-    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-sonarcloud-maven.yml@main
+    uses: ahincho/nova-devops/.github/workflows/reusable-sonarcloud-gradle.yml@main
     with:
-      sonar-org: OWNER
-      sonar-project-key: OWNER_galaxy-training-mask-utils
+      sonar-org: ahincho
+      sonar-project-key: ahincho_nova-java-spring-boot-mask-utils
     secrets: inherit
 
   version-bump:
     if: github.event_name == 'push'
-    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-version-bump-maven.yml@main
+    uses: ahincho/nova-devops/.github/workflows/reusable-version-bump-gradle.yml@main
     secrets: inherit
 
   publish:
     if: github.event_name == 'push'
     needs: version-bump
-    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-publish-maven.yml@main
+    uses: ahincho/nova-devops/.github/workflows/reusable-publish-gradle.yml@main
     secrets: inherit
