@@ -3,9 +3,9 @@
          xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
-    <groupId>pe.edu.galaxy.training.java.libs</groupId>
-    <artifactId>mask-utils</artifactId>
-    <version>1.0.0</version>
+    <groupId>pe.edu.nova.java.libs</groupId>
+    <artifactId>nova-mask-utils</artifactId>
+    <version>0.1.0-SNAPSHOT</version>
     <!-- Properties -->
     <properties>
         <!-- Java -->
@@ -82,10 +82,10 @@
                 </dependencies>
                 <configuration>
                     <targetClasses>
-                        <param>pe.edu.galaxy.training.java.libs.mask.utils.*</param>
+                        <param>pe.edu.nova.java.libs.mask.utils.*</param>
                     </targetClasses>
                     <targetTests>
-                        <param>pe.edu.galaxy.training.java.libs.mask.utils.*</param>
+                        <param>pe.edu.nova.java.libs.mask.utils.*</param>
                     </targetTests>
                     <mutators>
                         <mutator>DEFAULTS</mutator>
@@ -129,7 +129,7 @@
         <repository>
             <id>github</id>
             <name>GitHub Packages</name>
-            <url>https://maven.pkg.github.com/OWNER/galaxy-training-mask-utils</url>
+            <url>https://maven.pkg.github.com/OWNER/nova-mask-utils</url>
         </repository>
     </distributionManagement>
 </project>
