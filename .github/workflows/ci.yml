@@ -1,0 +1,38 @@
+name: CI/CD Pipeline
+
+on:
+  pull_request:
+    branches:
+      - main
+    types:
+      - opened
+      - synchronize
+      - reopened
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    if: github.event_name == 'pull_request'
+    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-build-maven.yml@main
+    secrets: inherit
+
+  sonar:
+    if: github.event_name == 'pull_request'
+    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-sonarcloud-maven.yml@main
+    with:
+      sonar-org: OWNER
+      sonar-project-key: OWNER_galaxy-training-mask-utils
+    secrets: inherit
+
+  version-bump:
+    if: github.event_name == 'push'
+    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-version-bump-maven.yml@main
+    secrets: inherit
+
+  publish:
+    if: github.event_name == 'push'
+    needs: version-bump
+    uses: OWNER/galaxy-training-devops/.github/workflows/reusable-publish-maven.yml@main
+    secrets: inherit
