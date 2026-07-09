@@ -41,3 +41,7 @@ build/
 ### IntelliJ IDEA (full directory)
 .idea/
 
+### Node ###
+node_modules/
+
+
