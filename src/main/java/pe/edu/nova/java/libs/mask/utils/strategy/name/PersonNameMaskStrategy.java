@@ -1,6 +1,5 @@
 package pe.edu.nova.java.libs.mask.utils.strategy.name;
 
-import pe.edu.nova.java.libs.mask.utils.CountryCode;
 import pe.edu.nova.java.libs.mask.utils.MaskType;
 import pe.edu.nova.java.libs.mask.utils.config.MaskConfig;
 import pe.edu.nova.java.libs.mask.utils.result.MaskResult;
