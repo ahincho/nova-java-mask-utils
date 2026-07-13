@@ -1,6 +1,7 @@
 {
   "packages": {
     ".": {
+      "component": "nova-mask-utils",
       "package-name": "pe.edu.nova.java.libs:nova-mask-utils",
       "release-type": "java",
       "skip-snapshot": true,
