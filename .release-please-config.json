@@ -1,4 +1,5 @@
 {
+  "last-release-sha": "ea223ebd1082841036cde18b5a719db58378dd23",
   "packages": {
     ".": {
       "component": "nova-mask-utils",
