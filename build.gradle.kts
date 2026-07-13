@@ -73,6 +73,53 @@ dependencyCheck {
     // and an empty NVD key (slower updates, acceptable for local dev).
     failBuildOnCVSS = (System.getenv("NOVA_OWASP_FAIL_ON_CVSS") ?: "11").toFloat()
     nvd.apiKey = System.getenv("NVD_API_KEY") ?: ""
+
+    // Must match the path reusable-owasp-check.yml caches AND restores the
+    // shared nova-devops NVD mirror into. Do NOT rely on the plugin's
+    // built-in default here - it was never verified/documented and previous
+    // cache sizes (15-57MB) strongly suggest it did not match what we were
+    // caching. Locally (no env var set) this falls back to a plain,
+    // dedicated directory outside ~/.gradle so it is never confused with
+    // unrelated Gradle caches.
+    data.directory = System.getenv("NOVA_OWASP_DATA_DIR")
+        ?: "${System.getProperty("user.home")}/.dependency-check-data"
+
+    // Investigation (2026-07-13, docs/java/06-semantic-versioning-en-java.md):
+    // a cold NVD sync took 50+ min mostly due to cache scoping, NOT these
+    // analyzers - but disabling ecosystems that plainly do not exist anywhere
+    // in this repo removes real (if smaller) analyze-phase overhead and
+    // network surface at zero detection-feature cost.
+    //
+    // Deliberately NOT disabled, despite this being a Java library:
+    //  - nodeEnabled / nodeAudit.enabled: package.json IS present (commitlint/
+    //    lefthook devDependencies) - keep scanning it for real.
+    //  - opensslEnabled: harmless/fast on a pure-JVM project, could still
+    //    catch an embedded native lib's version string; no reason to disable.
+    // RetireJS IS disabled: it fingerprints vendored/bundled JS *library*
+    // files (jQuery, lodash, etc.) - the only .js file in this repo is
+    // commitlint.config.js (a config file, not a vendored library), which
+    // will never match a RetireJS signature.
+    analyzers {
+        retirejs.enabled = false
+        assemblyEnabled = false
+        nuspecEnabled = false
+        nugetconfEnabled = false
+        msbuildEnabled = false
+        golangDepEnabled = false
+        golangModEnabled = false
+        swiftEnabled = false
+        swiftPackageResolvedEnabled = false
+        cocoapodsEnabled = false
+        composerEnabled = false
+        cpanEnabled = false
+        cmakeEnabled = false
+        autoconfEnabled = false
+        bundleAuditEnabled = false
+        pyDistributionEnabled = false
+        pyPackageEnabled = false
+        rubygemsEnabled = false
+        dartEnabled = false
+    }
 }
 
 
