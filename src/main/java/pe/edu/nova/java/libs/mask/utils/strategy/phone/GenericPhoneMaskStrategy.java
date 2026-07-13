@@ -25,13 +25,8 @@ public class GenericPhoneMaskStrategy implements MaskStrategy {
     public MaskResult mask(String value, MaskConfig config) {
         char maskChar = config.maskChar();
 
-        // Contar dígitos totales
-        int totalDigits = 0;
-        for (int i = 0; i < value.length(); i++) {
-            if (Character.isDigit(value.charAt(i))) {
-                totalDigits++;
-            }
-        }
+        // Contar dígitos totales (separadores preservados, ver bucle abajo).
+        int totalDigits = (int) value.chars().filter(Character::isDigit).count();
 
         int digitsToMask = totalDigits - VISIBLE_END_DIGITS;
         StringBuilder masked = new StringBuilder(value.length());
