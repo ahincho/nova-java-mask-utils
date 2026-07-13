@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.1.0](https://github.com/ahincho/nova-java-mask-utils/compare/nova-mask-utils-v1.0.0...nova-mask-utils-v1.1.0) (2026-07-13)
+
+
+### Features
+
+* refactor GenericPhoneMaskStrategy to use stream-based digit counting ([cbca210](https://github.com/ahincho/nova-java-mask-utils/commit/cbca21021cdedeae95db70c645d610a80ce2e539))
+
+
+### Bug Fixes
+
+* **ci:** add explicit component name in release-please-config.json ([1a2e560](https://github.com/ahincho/nova-java-mask-utils/commit/1a2e5601b6692671a06af85330b421a2ce1a43f1))
+* **ci:** add skip-snapshot to release-please-config.json ([b3cf331](https://github.com/ahincho/nova-java-mask-utils/commit/b3cf3311739032ed0478cb10507779277d8d81ad))
+* **ci:** pin last-release-sha for clean CHANGELOG after path migration ([6e7e7fb](https://github.com/ahincho/nova-java-mask-utils/commit/6e7e7fb74ccffec5e2d085a44f46dffa1477fc3a))
+
 ## 1.0.0 (2026-07-10)
 
 
