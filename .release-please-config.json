@@ -3,6 +3,7 @@
     ".": {
       "package-name": "pe.edu.nova.java.libs:nova-mask-utils",
       "release-type": "java",
+      "skip-snapshot": true,
       "bump-minor-pre-major": true,
       "bump-patch-for-minor-pre-major": true,
       "draft": false,
