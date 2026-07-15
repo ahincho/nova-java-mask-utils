@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/ahincho/nova-java-mask-utils/compare/v1.1.0...v1.1.1) (2026-07-15)
+
+
+### Bug Fixes
+
+* **ci:** disable include-component-in-tag to keep simple vX.Y.Z tags ([03cf0aa](https://github.com/ahincho/nova-java-mask-utils/commit/03cf0aab5ce1cf434da798d467286b67d11b03d1))
+* **ci:** validate workflow_run pattern (Phase 3 pilot test) ([036687f](https://github.com/ahincho/nova-java-mask-utils/commit/036687f7b644e37f4fb58c753d4063519c3a4002))
+
 ## [1.1.0](https://github.com/ahincho/nova-java-mask-utils/compare/nova-mask-utils-v1.0.0...nova-mask-utils-v1.1.0) (2026-07-13)
 
 
